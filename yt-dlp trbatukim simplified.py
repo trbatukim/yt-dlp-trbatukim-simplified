@@ -34,7 +34,7 @@ video_file_types = ["mp4", "avi", "mkv", "mov", "wmv", "flv", "webm", "mpeg", "m
 audio_file_types = ["mp3", "wav", "aac", "flac", "alac", "ogg", "wma", "aiff", "m4a", "pcm"]
 
 clear_console()
-print(f"Yazar: trbatukim\nGereksinimler: {colored(link('https://www.ffmpeg.org/', 'ffmpeg'), 'red')}\nTemelinde {colored(link('https://github.com/yt-dlp/yt-dlp', 'yt-dlp'), 'red')} kullanır.\n\n[0] Video ve ses\n[1] Salt ses\n[2] Desteklenen websiteler")
+print(f"{colored('Yazar: trbatukim', 'white', attrs=['bold'])}\n{colored('Gereksinimler:', 'white', attrs=['bold'])} {colored(link('https://www.ffmpeg.org/', 'ffmpeg'), 'red', attrs=['bold'])}\n{colored('Temelinde', 'white', attrs=['bold'])} {colored(link('https://github.com/yt-dlp/yt-dlp', 'yt-dlp'), 'red', attrs=['bold'])} {colored('kullanır.', 'white', attrs=['bold'])}\n\n[0] Video ve ses\n[1] Salt ses\n[2] Desteklenen siteler")
 
 while True:
     if keyboard.is_pressed("0"):
@@ -80,5 +80,3 @@ url = input(colored('\nLinki giriniz: ', 'light_blue'))
 
 with yt_dlp.YoutubeDL(ydl_opts) as ydl:
     ydl.download([url])
-
-exit()
