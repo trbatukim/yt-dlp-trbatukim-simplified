@@ -30,8 +30,8 @@ def link(uri, label=None):
     escape_mask = '\033]8;{};{}\033\\{}\033]8;;\033\\'
     return escape_mask.format(parameters, uri, label)
 
-video_file_types = ["mp4", "avi", "mkv", "mov", "wmv", "flv", "webm", "mpeg", "m4v"]
-audio_file_types = ["mp3", "wav", "aac", "flac", "alac", "ogg", "wma", "aiff", "m4a", "pcm"]
+video_file_types = ["mp4", "avi", "mkv", "mov", "webm", "m4v"]
+audio_file_types = ["mp3", "wav", "flac","m4a"]
 
 clear_console()
 print(f"{colored('Yazar: trbatukim', 'white', attrs=['bold'])}\n{colored('Gereksinimler:', 'white', attrs=['bold'])} {colored(link('https://www.ffmpeg.org/', 'ffmpeg'), 'red', attrs=['bold'])}\n{colored('Temelinde', 'white', attrs=['bold'])} {colored(link('https://github.com/yt-dlp/yt-dlp', 'yt-dlp'), 'red', attrs=['bold'])} {colored('kullanır.', 'white', attrs=['bold'])}\n\n[0] Video ve ses\n[1] Salt ses\n[2] Desteklenen siteler")
@@ -39,7 +39,7 @@ print(f"{colored('Yazar: trbatukim', 'white', attrs=['bold'])}\n{colored('Gereks
 while True:
     if keyboard.is_pressed("0"):
         clear_console()
-        print(f"{colored('Dosya türü seçiniz:', 'white', attrs=['bold'])}\n\n[0] MP4\n[1] AVI\n[2] MKV\n[3] MOV\n[4] WMV\n[5] FLV\n[6] WEBM\n[7] MPEG\n[8] M4V")
+        print(f"{colored('Dosya türü seçiniz:', 'white', attrs=['bold'])}\n\n[0] MP4\n[1] AVI (DÜŞÜK KALİTE)\n[2] MKV\n[3] MOV\n[4] WEBM\n[5] M4V")
         time.sleep(0.3)
         while True:
             current_key = keyboard.read_key()
@@ -49,23 +49,24 @@ while True:
                     'format': 'bestvideo+bestaudio/best',
                     'postprocessors': [{
                         'key': 'FFmpegVideoConvertor',
-                        'preferedformat': f'{video_file_types[int(current_key)]}'
+                        'preferedformat': f'{file_type}'
                     }]}
                 break
         break
     elif keyboard.is_pressed("1"):
         clear_console()
-        print(f"{colored('Dosya türü seçiniz:', 'white', attrs=['bold'])}\n\n[0] MP3\n[1] WAV\n[2] AAC\n[3] FLAC\n[4] ALAC\n[5] OGG\n[6] WMA\n[7] AIFF\n[8] M4A\n[9] PCM")
+        print(f"{colored('Dosya türü seçiniz:', 'white', attrs=['bold'])}\n\n[0] MP3\n[1] WAV\n[2] FLAC\n[3] M4A")
         time.sleep(0.3)
         while True:
             current_key = keyboard.read_key()
             if current_key.isdigit() and 9 >= int(current_key) >= 0:
-                file_type = video_file_types[int(current_key)]
+                file_type = audio_file_types[int(current_key)]
                 ydl_opts = {
-                    'format': 'bestvideo+bestaudio/best',
+                    'format': 'bestaudio/best',
                     'postprocessors': [{
-                        'key': 'FFmpegVideoConvertor',
-                        'preferedformat': f'{video_file_types[int(current_key)]}'
+                        'key': 'FFmpegExtractAudio',
+                        'preferredcodec': f'{(file_type)}',
+                        'preferredquality': '192',
                     }]}
                 break
         break
@@ -80,3 +81,5 @@ url = input(colored('\nLinki giriniz: ', 'light_blue'))
 
 with yt_dlp.YoutubeDL(ydl_opts) as ydl:
     ydl.download([url])
+
+exit()
