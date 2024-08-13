@@ -1,0 +1,16 @@
+*Setup*
+
+Only run initial-setup.bat once. initial-setup.bat is not needed if you already have Pyhton, yt_dlp, keyboard, and termcolor installed on your system.
+
+After inital-setup.bat is does its job, you can create a shortcut to or double click "yt-dlp trbatukim Edition.bat" to run the application.
+__________________________________________________________________________________________________________________________________________________
+
+*Troubleshooting*
+
+If the program stops working, YouTube probably thinks you're a bot.
+To fix this:
+
+Firefox: https://addons.mozilla.org/tr/firefox/addon/cookies-txt/
+Chrome/Brave/Edge: https://chromewebstore.google.com/detail/get-cookiestxt-locally/cclelndahbckbenkjhflpdbgdldlbecc
+
+After downloading these extensions go to www.youtube.com and click on the extension to download your cookies. Name the file "cookies.txt" and replace the already existing cookies.txt file in the "cookies" folder.
