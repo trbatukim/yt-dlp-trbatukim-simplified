@@ -1,5 +1,5 @@
-#Türkçe
-##Kurulum
+# Türkçe
+## Kurulum
 
 initial-setup.bat dosyasını sadece ilk kurulumda çalıştırınız. Sisteminizde Python, keyboard, yt_dlp ve termcolor zaten yüklüyse initial-setup.bat dosyasını çalıştırmanıza gerek yoktur.
 
@@ -15,14 +15,14 @@ Chrome/Brave/Edge: [Get cookies.txt LOCALLY](https://chromewebstore.google.com/d
 
 Bu eklentileri indirdikten sonra www.youtube.com adresine girerek eklentinin üzerine tıklayınız ve cookies dosyasının ismini "cookies.txt" yaparak kaydediniz. Bu dosyayı "cookies" klasörünün içinde bulunan "cookies.txt" dosyasıyla değiştiriniz.
 
-#English
-##Setup
+# English
+## Setup
 
 Only run initial-setup.bat once. initial-setup.bat is not needed if you already have Pyhton, yt_dlp, keyboard, and termcolor installed on your system.
 
 After inital-setup.bat is does its job, you can create a shortcut to or double click "yt-dlp trbatukim Edition.bat" to run the application.
 
-##Troubleshooting
+## Troubleshooting
 
 If the program stops working, YouTube probably thinks you're a bot.
 To fix this:
