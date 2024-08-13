@@ -5,7 +5,7 @@ initial-setup.bat dosyasını sadece ilk kurulumda çalıştırınız. Sistemini
 
 initial-setup.bat'ın işi bittikten sonra "yt-dlp trbatukim Edition.bat" dosyasına kısayol oluşturarak veya çift tıklayarak uygulamayı çalıştırabilirsiniz.
 
-##Sorun Giderme
+## Sorun Giderme
 
 Uygulama çalışmıyorsa YouTube bot olduğunuzu düşünüyor olabilir.
 Bunu düzeltmek için:
