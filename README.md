@@ -1,9 +1,7 @@
 # Türkçe
 ## Kurulum
 
-initial-setup.bat dosyasını sadece ilk kurulumda çalıştırınız. Sisteminizde Python, keyboard, yt_dlp ve termcolor zaten yüklüyse initial-setup.bat dosyasını çalıştırmanıza gerek yoktur.
-
-initial-setup.bat'ın işi bittikten sonra "yt-dlp trbatukim Edition.bat" dosyasına kısayol oluşturarak veya çift tıklayarak uygulamayı çalıştırabilirsiniz.
+"yt-dlp trbatukim Edition.exe" dosyasına çift tıklayarak uygulamayı çalıştırabilirsizin.
 
 ## Sorun Giderme
 
@@ -19,9 +17,7 @@ Bu eklentileri indirdikten sonra www.youtube.com adresine girerek eklentinin üz
 # English
 ## Setup
 
-Only run initial-setup.bat once. initial-setup.bat is not needed if you already have Pyhton, yt_dlp, keyboard, and termcolor installed on your system.
-
-After inital-setup.bat is does its job, you can create a shortcut to or double click "yt-dlp trbatukim Edition.bat" to run the application.
+To run the application, double click the file named "yt-dlp trbatukim Edition.exe".
 
 ## Troubleshooting
 
