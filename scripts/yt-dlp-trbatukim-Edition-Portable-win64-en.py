@@ -2,6 +2,7 @@
 from __future__ import unicode_literals
 import yt_dlp
 import os
+import sys
 import keyboard
 import webbrowser
 from termcolor import colored
@@ -30,14 +31,33 @@ def link(uri, label=None):
     escape_mask = '\033]8;{};{}\033\\{}\033]8;;\033\\'
     return escape_mask.format(parameters, uri, label)
 
+#Find the downloads folder
+def get_download_path():
+    """Returns the default downloads path for linux or windows"""
+    if os.name == 'nt':
+        import winreg
+        sub_key = r'SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders'
+        downloads_guid = '{374DE290-123F-4565-9164-39C4925E467B}'
+        with winreg.OpenKey(winreg.HKEY_CURRENT_USER, sub_key) as key:
+            location = winreg.QueryValueEx(key, downloads_guid)[0]
+        return location
+    else:
+        return os.path.join(os.path.expanduser('~'), 'downloads') # Includes solutions for macOS/Linux
+
+#Find the real path of the .exe file
+def get_real_path():
+    if getattr(sys, 'frozen', False):
+        return os.path.dirname(sys.executable)
+    else:
+        return os.path.dirname(os.path.abspath(__file__))
+current_dir = get_real_path()
+
 #Setting up ffmpeg path
-current_dir = os.path.dirname(os.path.abspath(__file__))
-parent_dir = os.path.dirname(current_dir)
-ffmpeg_path = os.path.join(parent_dir, 'ffmpeg', 'bin', 'ffmpeg.exe')
+ffmpeg_path = os.path.join(current_dir, 'ffmpeg', 'bin', 'ffmpeg.exe')
 #Setting up downloads path
-download_dir = os.path.join(parent_dir, 'downloads')
+download_dir = get_download_path()
 #Setting up cookies.txt path
-cookies_dir = os.path.join(parent_dir, 'cookies', 'cookies.txt')
+cookies_dir = os.path.join(current_dir, 'cookies', 'cookies.txt')
 
 video_file_types = ["mp4", "avi", "mkv", "mov", "webm", "m4v"]
 audio_file_types = ["mp3", "wav", "flac","m4a"]
